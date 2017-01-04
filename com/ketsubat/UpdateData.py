@@ -25,14 +25,10 @@ def updateData(brokerName, list):
     
     sql = sql[0:-1] + ";"
     
-    print sql
-    
     db = Db.Db()
     
     db.execute(const.POSTGRE_HOST, const.POSTGRE_PORT, const.POSTGRE_DB, const.POSTGRE_USER, const.POSTGRE_PW, "delete from price where broker='" + brokerName + "';")
     db.execute(const.POSTGRE_HOST, const.POSTGRE_PORT, const.POSTGRE_DB, const.POSTGRE_USER, const.POSTGRE_PW, sql)
-    r = db.select(const.POSTGRE_HOST, const.POSTGRE_PORT, const.POSTGRE_DB, const.POSTGRE_USER, const.POSTGRE_PW, 'select * from price;')
-    print r
 
 
 const = Const.Const()
